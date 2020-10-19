@@ -10,7 +10,7 @@ namespace ShopsNetCore.Data
     {
         private readonly ShopsDbContext db;
 
-        //Inject DbContext in constructor
+        //Inject DbContext via constructor and save in a field
         public EFShopRepository(ShopsDbContext db)
         {
             this.db = db;
