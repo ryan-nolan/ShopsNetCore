@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopsNetCore.Web", "ShopsNetCore.Web\ShopsNetCore.Web.csproj", "{AA5048EB-EEA6-4E5A-B328-1BB1C2A0D6C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopsNetCore.Core", "ShopsNetCore.Core\ShopsNetCore.Core.csproj", "{600B5C13-81EA-48AF-8CA3-AD8F705E00B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopsNetCore.Data", "ShopsNetCore.Data\ShopsNetCore.Data.csproj", "{B3171E5E-4A3D-45F9-B89D-666E29AB7F40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{AA5048EB-EEA6-4E5A-B328-1BB1C2A0D6C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA5048EB-EEA6-4E5A-B328-1BB1C2A0D6C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA5048EB-EEA6-4E5A-B328-1BB1C2A0D6C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{600B5C13-81EA-48AF-8CA3-AD8F705E00B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{600B5C13-81EA-48AF-8CA3-AD8F705E00B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{600B5C13-81EA-48AF-8CA3-AD8F705E00B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{600B5C13-81EA-48AF-8CA3-AD8F705E00B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3171E5E-4A3D-45F9-B89D-666E29AB7F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3171E5E-4A3D-45F9-B89D-666E29AB7F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3171E5E-4A3D-45F9-B89D-666E29AB7F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3171E5E-4A3D-45F9-B89D-666E29AB7F40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
