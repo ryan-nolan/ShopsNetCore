@@ -1,8 +1,26 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1>Shops</h1>
+
+    @*<form method="get">
+        <div class="form-group">
+            <div class="input-group">
+                <input type="search" class="form-control" asp-for="SearchTerm" name="searchTerm" />
+                <span class="btn-light">
+                    <button class="btn btn">
+                        <i class="btn"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </form>*@
+
+    @foreach (var r in Model.Shops)
+    {
+        <div>@r.Name, @r.OpeningTime</div>
+    }
 </div>

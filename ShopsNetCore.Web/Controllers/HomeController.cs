@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ShopsNetCore.Data;
 using ShopsNetCore.Web.Models;
 
 namespace ShopsNetCore.Web.Controllers
@@ -13,14 +14,21 @@ namespace ShopsNetCore.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public IShopData _repository { get; }
+
+        public HomeController(ILogger<HomeController> logger, IShopData repository)
         {
             _logger = logger;
+            _repository = repository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchTerm)
         {
-            return View();
+            HomeViewModel hvm = new HomeViewModel
+            {
+                Shops = _repository.GetShopsByName(searchTerm),
+            };
+            return View(hvm);
         }
 
         public IActionResult Privacy()
