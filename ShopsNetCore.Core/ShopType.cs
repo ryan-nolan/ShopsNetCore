@@ -7,6 +7,7 @@
         Cafe,
         Clothing,
         OffLicense,
-        Supermarket
+        Supermarket,
+        Other
     }
 }
