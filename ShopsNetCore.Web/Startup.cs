@@ -30,7 +30,7 @@ namespace ShopsNetCore.Web
             {
                 options.UseSqlServer(Configuration.GetConnectionString("ShopNetCoreLocalDb"));
             });
-            services.AddScoped<IShopData, EFShopRepository>();
+            services.AddScoped<IShopRepository, EFShopRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

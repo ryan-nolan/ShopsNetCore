@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ShopsNetCore.Data
 {
-    public class EFShopRepository : IShopData
+    public class EFShopRepository : IShopRepository
     {
         private readonly ShopsDbContext db;
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ShopsNetCore.Data
 {
-    public interface IShopData
+    public interface IShopRepository
     {
         IEnumerable<Shop> GetShopsByName(string name);
         Shop GetById(int id);

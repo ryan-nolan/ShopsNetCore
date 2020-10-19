@@ -14,9 +14,9 @@ namespace ShopsNetCore.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public IShopData _repository { get; }
+        public IShopRepository _repository { get; }
 
-        public HomeController(ILogger<HomeController> logger, IShopData repository)
+        public HomeController(ILogger<HomeController> logger, IShopRepository repository)
         {
             _logger = logger;
             _repository = repository;
@@ -26,14 +26,9 @@ namespace ShopsNetCore.Web.Controllers
         {
             HomeViewModel hvm = new HomeViewModel
             {
-                Shops = _repository.GetShopsByName(searchTerm),
+                Shops = _repository.GetShopsByName(searchTerm)
             };
             return View(hvm);
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

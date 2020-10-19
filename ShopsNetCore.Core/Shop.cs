@@ -23,7 +23,6 @@ namespace ShopsNetCore.Core
         [Required, DataType(DataType.Time)]
         public DateTime OpeningTime { get; set; }
 
-        [Required, DataType(DataType.Time)]
         public DateTime ClosingTime { get; set; }
     }
 }
