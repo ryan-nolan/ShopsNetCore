@@ -9,7 +9,7 @@ namespace ShopsNetCore.Data
     {
         IEnumerable<Shop> GetShopsByName(string name);
         Shop GetById(int id);
-        Shop Update(Shop upatedShop);
+        Shop Update(Shop updatedShop);
         Shop Add(Shop newShop);
         Shop Delete(int id);
         int GetCountOfShops();

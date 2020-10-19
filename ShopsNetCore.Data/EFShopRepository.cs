@@ -1,6 +1,7 @@
 ﻿using ShopsNetCore.Core;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ShopsNetCore.Data
@@ -28,27 +29,34 @@ namespace ShopsNetCore.Data
 
         public Shop Delete(int id)
         {
-            throw new NotImplementedException();
+            Shop shop = GetById(id);
+            if(shop != null)
+            {
+                db.Shops.Remove(shop);
+            }
+            return shop;
         }
 
         public Shop GetById(int id)
         {
-            throw new NotImplementedException();
+            return db.Shops.Find(id);
         }
 
         public int GetCountOfShops()
         {
-            throw new NotImplementedException();
+            return db.Shops.Count();
         }
 
         public IEnumerable<Shop> GetShopsByName(string name)
         {
-            throw new NotImplementedException();
+            return db.Shops.Where(s => s.Name.StartsWith(name) || string.IsNullOrEmpty(name));
         }
 
-        public Shop Update(Shop upatedShop)
+        public Shop Update(Shop updatedShop)
         {
-            throw new NotImplementedException();
+            var entity = db.Shops.Attach(updatedShop);
+            entity.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            return updatedShop;
         }
     }
 }
