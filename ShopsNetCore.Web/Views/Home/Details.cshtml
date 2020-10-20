@@ -4,4 +4,11 @@
 *@
 @{
 }
-@Model.Name
+<h1>@Model.Name</h1>
+<h2>@Model.AddressLineOne</h2>
+<div>
+    @Model.Description<br />
+    @Model.Postcode<br />
+    @Model.OpeningTime.ToString("H:mm") - @Model.ClosingTime.ToString("H:mm") <br />
+
+</div>

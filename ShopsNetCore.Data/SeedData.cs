@@ -19,7 +19,7 @@ namespace ShopsNetCore.Data
             {
                 context.Database.Migrate();
             }
-            if (!context.Shops.Any())
+            if (!context.Shops.Any() || context.Shops.Count() <= 1)
             {
                 context.Shops.AddRange(
                     new Shop

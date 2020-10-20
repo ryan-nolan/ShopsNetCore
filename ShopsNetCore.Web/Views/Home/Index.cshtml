@@ -25,12 +25,13 @@
     {
         <div>
             <a asp-action="Details" asp-route-id="@s.Id">@s.Name</a>
-            <p>@s.Description</p>
+            <p>
+                @s.Description
+                <br />
+                <a asp-action="Edit" asp-route-id="@s.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@s.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@s.Id">Delete</a>
+            </p>
         </div>
-        <td>
-            <a asp-action="Edit" asp-route-id="@s.Id">Edit</a> |
-            <a asp-action="Details" asp-route-id="@s.Id">Details</a> |
-            <a asp-action="Delete" asp-route-id="@s.Id">Delete</a>
-        </td>
     }
 </div>

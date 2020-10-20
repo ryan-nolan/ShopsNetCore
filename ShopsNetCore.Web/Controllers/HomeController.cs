@@ -69,7 +69,28 @@ namespace ShopsNetCore.Web.Controllers
             }
             return View(shop);
         }
-
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Shop shop = _repository.GetById(id.Value);
+            if (shop == null)
+            {
+                return NotFound();
+            }
+            return View(shop);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(Shop shop)
+        {
+            _repository.Delete(shop.Id);
+            _repository.Commit();
+            return RedirectToAction(nameof(Index));
+        }
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
