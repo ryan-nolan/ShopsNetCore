@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopsNetCore.Data;
 
 namespace ShopsNetCore.Data.Migrations
 {
     [DbContext(typeof(ShopsDbContext))]
-    partial class ShopsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201020124953_Added-Address-Lines")]
+    partial class AddedAddressLines
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

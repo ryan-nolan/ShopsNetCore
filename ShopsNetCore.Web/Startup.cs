@@ -55,6 +55,8 @@ namespace ShopsNetCore.Web
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("details", "Details/{id}",
+                    new { Controller = "Home", action = "Details" });
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

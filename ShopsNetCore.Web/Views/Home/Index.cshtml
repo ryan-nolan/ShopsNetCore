@@ -5,7 +5,9 @@
 
 <div class="text-center">
     <h1>Shops</h1>
-
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
     <form method="get">
         <div class="form-group">
             <div class="input-group">
@@ -19,8 +21,16 @@
         </div>
     </form>
 
-    @foreach (var r in Model.Shops)
+    @foreach (var s in Model.Shops)
     {
-        <div>@r.Name, @r.OpeningTime</div>
+        <div>
+            <a asp-action="Details" asp-route-id="@s.Id">@s.Name</a>
+            <p>@s.Description</p>
+        </div>
+        <td>
+            <a asp-action="Edit" asp-route-id="@s.Id">Edit</a> |
+            <a asp-action="Details" asp-route-id="@s.Id">Details</a> |
+            <a asp-action="Delete" asp-route-id="@s.Id">Delete</a>
+        </td>
     }
 </div>

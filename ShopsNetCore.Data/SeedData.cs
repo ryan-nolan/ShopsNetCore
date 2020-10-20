@@ -26,7 +26,9 @@ namespace ShopsNetCore.Data
                     {
                         Name = "H&M",
                         Description = "H&M Clothing Store",
-                        Location = "53 Livingston Road",
+                        AddressLineOne = "53 Livingston Road",
+                        AddressLineTwo = "Wirral",
+                        Postcode = "CH49 6LL",
                         ShopType = ShopType.Clothing,
                         OpeningTime = DateTime.Parse("14:30"),
                         ClosingTime = DateTime.Parse("17:30"),
@@ -36,16 +38,19 @@ namespace ShopsNetCore.Data
                     {
                         Name = "Pat's Bakery",
                         Description = "Pat's Bakery, For baking goods",
-                        Location = "124 Kingsley Street",
+                        AddressLineOne = "124 Kingsley Street",
+                        AddressLineTwo = "Wirral",
+                        Postcode = "CH49 6LL",
                         ShopType = ShopType.Bakery,
                         OpeningTime = DateTime.Parse("12:30"),
                         ClosingTime = DateTime.Parse("18:30"),
-
                     }, new Shop
                     {
                         Name = "John's Barbers",
                         Description = "For Haircuts",
-                        Location = "4 Stevenson Road",
+                        AddressLineOne = "4 Stevenson Road",
+                        AddressLineTwo = "Wirral",
+                        Postcode = "CH49 6LL",
                         ShopType = ShopType.Barbershop,
                         OpeningTime = DateTime.Parse("06:30"),
                         ClosingTime = DateTime.Parse("16:30"),
