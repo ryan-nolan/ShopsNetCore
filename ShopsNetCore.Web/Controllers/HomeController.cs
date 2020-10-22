@@ -16,15 +16,14 @@ namespace ShopsNetCore.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IHtmlHelper htmlHelper;
-
-        public IShopRepository _repository { get; }
+        private readonly IHtmlHelper _htmlHelper;
+        private IShopRepository _repository { get; }
 
         public HomeController(ILogger<HomeController> logger, IShopRepository repository, IHtmlHelper htmlHelper)
         {
             _logger = logger;
             _repository = repository;
-            this.htmlHelper = htmlHelper;
+            _htmlHelper = htmlHelper;
         }
 
         public IActionResult Index(string searchTerm)
@@ -53,7 +52,7 @@ namespace ShopsNetCore.Web.Controllers
         {
             var vm = new CreateEditViewModel
             {
-                ShopType = htmlHelper.GetEnumSelectList<ShopType>()
+                ShopType = _htmlHelper.GetEnumSelectList<ShopType>()
             };
             return View(vm);
         }
@@ -67,7 +66,38 @@ namespace ShopsNetCore.Web.Controllers
                 _repository.Commit();
                 return RedirectToAction(nameof(Index));
             }
-            return View(shop);
+            return View(new CreateEditViewModel {Shop = shop});
+        }
+
+        public IActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Shop shop = _repository.GetById(id.Value);
+            if (shop == null)
+            {
+                return NotFound();
+            }
+            var vm = new CreateEditViewModel
+            {
+                ShopType = _htmlHelper.GetEnumSelectList<ShopType>(),
+                Shop = shop
+            };
+            return View(vm);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Shop shop)
+        {
+            if (ModelState.IsValid)
+            {
+                _repository.Update(shop);
+                _repository.Commit();
+                return RedirectToAction(nameof(Details), new  {id = shop.Id});
+            }
+            return View(new CreateEditViewModel { Shop = shop });
         }
         public IActionResult Delete(int? id)
         {
@@ -80,7 +110,7 @@ namespace ShopsNetCore.Web.Controllers
             {
                 return NotFound();
             }
-            return View(shop);
+            return Delete(shop);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

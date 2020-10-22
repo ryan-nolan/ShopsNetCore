@@ -56,6 +56,7 @@ namespace ShopsNetCore.Data
         {
             var entity = db.Shops.Attach(updatedShop);
             entity.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
             return updatedShop;
         }
     }
