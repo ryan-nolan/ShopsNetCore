@@ -1,7 +1,5 @@
 ﻿using ShopsNetCore.Core;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ShopsNetCore.Data
 {

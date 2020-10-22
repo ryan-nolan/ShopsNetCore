@@ -1,30 +1,28 @@
 ﻿using ShopsNetCore.Core;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ShopsNetCore.Data
 {
-    public class EFShopRepository : IShopRepository
+    public class EfShopRepository : IShopRepository
     {
-        private readonly ShopsDbContext db;
+        private readonly ShopsDbContext _db;
 
         //Inject DbContext via constructor and save in a field
-        public EFShopRepository(ShopsDbContext db)
+        public EfShopRepository(ShopsDbContext db)
         {
-            this.db = db;
+            this._db = db;
         }
 
         public Shop Add(Shop newShop)
         {
-            db.Shops.Add(newShop);
+            _db.Shops.Add(newShop);
             return newShop;
         }
 
         public int Commit()
         {
-            return db.SaveChanges();
+            return _db.SaveChanges();
         }
 
         public Shop Delete(int id)
@@ -32,31 +30,31 @@ namespace ShopsNetCore.Data
             Shop shop = GetById(id);
             if(shop != null)
             {
-                db.Shops.Remove(shop);
+                _db.Shops.Remove(shop);
             }
             return shop;
         }
 
         public Shop GetById(int id)
         {
-            return db.Shops.Find(id);
+            return _db.Shops.Find(id);
         }
 
         public int GetCountOfShops()
         {
-            return db.Shops.Count();
+            return _db.Shops.Count();
         }
 
         public IEnumerable<Shop> GetShopsByName(string name)
         {
-            return db.Shops.Where(s => s.Name.StartsWith(name) || string.IsNullOrEmpty(name));
+            return _db.Shops.Where(s => s.Name.StartsWith(name) || string.IsNullOrEmpty(name));
         }
 
         public Shop Update(Shop updatedShop)
         {
-            var entity = db.Shops.Attach(updatedShop);
+            var entity = _db.Shops.Attach(updatedShop);
             entity.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            db.SaveChanges();
+            _db.SaveChanges();
             return updatedShop;
         }
     }
